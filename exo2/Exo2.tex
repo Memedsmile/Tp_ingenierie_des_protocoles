@@ -1,6 +1,7 @@
 \subsection{Question 1}
  Le protocole peut être décrit par le réseau suivant : \\
 
+\begin{comment}
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
@@ -102,6 +103,8 @@
   \caption{Réseau de petri associé au protocole de communication} \label{fig:M1}
 \end{figure}
 
+\end{comment}
+
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
@@ -168,8 +171,74 @@
     \draw[->,>=latex] (T7) -- (At);
     \draw[->,>=latex] (T7) to[bend right=20] (M);
 
-
+    %Marquage
+    \draw [fill](-2,4) circle (0.1) ;
+    \draw [fill](-2,-4) circle (0.1) ;
 
   \end{tikzpicture}
   \caption{Réseau de petri associé au protocole de communication} \label{fig:M1}
 \end{figure}
+
+\newpage
+
+\subsection{Question 2}
+
+Nous allons représenter le marquagepar un vecteur de la forme :\\
+\begin{center}
+  (E Att M Re ACK NACK R)\\
+\end{center}
+où chaque symbole i correspond au nombre de jeton contenu dans la place i.\\
+Ainsi $M_0 = (1\ 0\ 0\ 0\ 0\ 0\ 1)$ indique qu'il y a un jeton en E et en R.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    % Liste des Marquage
+    \node (M0) at (0,6) {$(1\ 0\ 0\ 0\ 0\ 0\ 1)$};
+    \node (M1) at (0,4) {$(0\ 1\ 1\ 0\ 0\ 0\ 1)$};
+    \node (M2) at (-2,2) {$(0\ 1\ 0\ 0\ 1\ 0\ 1)$};
+    \node (M3) at (2,2) {$(0\ 1\ 0\ 0\ 0\ 1\ 0)$};
+    \node (M4) at (-3,0) {$(0\ 0\ 0\ 1\ 0\ 0\ 1)$};
+    \node (M5) at (0,0) {$(0\ 0\ 0\ 1\ 0\ 0\ 0)$};
+    \node (M6) at (3,0) {$(0\ 1\ 1\ 0\ 0\ 0\ 0)$};
+  
+
+    % Liste des arcs
+    \draw[->,>=latex] (M0) -- (M1) node[midway, right]{$t_1$};
+    \draw[->,>=latex] (M1) -- (M2) node[midway, right]{$t_4$};
+    \draw[->,>=latex] (M1) -- (M3) node[midway, right]{$t_8$};
+    \draw[->,>=latex] (M2) to[bend left=45] node[midway, right]{$t_2$} (M0);
+    \draw[->,>=latex] (M2) -- (M4) node[midway, right]{$t_3$};
+    \draw[->,>=latex] (M3) to[bend right=30] node[midway, left]{$t_5$} (M5);
+    \draw[->,>=latex] (M3) to[bend left=30]  node[midway, left]{$t_6$} (M5);
+    \draw[->,>=latex] (M4) to[bend right=45] node[midway,left]{$t_7$} (M1);
+    \draw[->,>=latex] (M5) -- (M6) node[midway, below]{$t_7$};
+
+  \end{tikzpicture}
+  \caption{Graphe des marquages accessibles} \label{fig:M10}
+\end{figure}
+
+\subsection{Question 3}
+
+On a dans notre réseau :
+\begin{center}
+  $a\ =\ T_1\ et\ b\ =\ T_4$
+\end{center}
+
+Lors de l'émission d'un message m par l'émetteur, $T_1$ fait transité |m| caractères.\\
+On va considérer que l'ensemble du message est reconnu et accepté par le recepteur.\\
+Ainsi, $T_4$ fait également transité |m| caractère.\\
+Le recepteur envoie alors un ACK et retourne au repos.\\
+A ce moment, l'envoie du ACK peut être perturber et transformer en Y. L'emetteur recevant un Y se mat alors en état de réémission et renvoie le message m.\\
+Le recepteur le reçoit donc de nouveau.\\
+En considerant que le message est reconnu par le recepteur $T_4$ fait à nouveau transité |m| caractère.\\
+Le récepteur envoie à nouveau un ACK et nous allons considerer qu'il n'est pas perturber et donc reçu par l'émetteur.\\
+Les deux retourne donc à l'état de repos.\\
+
+En notant $w$ la ligne décrite ci-dessus, on a $|T_1|_w = |m|$ et $|T_4|_w = 2|m|$\\
+On a donc bien :
+\begin{center}
+  $|a|_w < |b|_w$
+\end{center}
+
+
