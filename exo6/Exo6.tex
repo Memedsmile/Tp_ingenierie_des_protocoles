@@ -1,0 +1,73 @@
+\subsection{Question 6}
+Voici le Rdp permettant de savoir si une expression est bien une expression complètement parenthésée:
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    % Liste des places
+    \draw (-6,4) node[below left = 2pt] {$'('$};
+    \node[draw,circle,scale=2] (po) at (-6, 4) {};
+    \draw (0,2) node[above left = 2pt] {$lettre$};
+    \node[draw,circle,scale=2] (lettre) at (0, 2) {};
+    \draw (6, 2) node[below right = 2pt] {$operateur$};
+    \node[draw,circle,scale=2] (operateur) at (6, 2) {};
+    \draw (0,0) node[above right = 2pt] {$')'$};
+    \node[draw,circle,scale=2] (pf) at (0, 0) {};
+    \draw (6,-4) node[below right = 2pt] {$EOF$};
+    \node[draw,circle,scale=2] (EOF) at (6, -4) {};
+
+
+    % Liste des transitions
+    \draw (-6,6) node[below = 10pt] {$t_1$};
+    \node[draw,rectangle,yscale=4] (t1) at (-6, 6) {};
+    \draw (-3,2) node[below = 10pt] {$t_2$};
+    \node[draw,rectangle,yscale=4] (t2) at (-3, 2) {};
+    \draw (-3,0) node[below = 10pt] {$t_3$};
+    \node[draw,rectangle,yscale=4] (t3) at (-3, 0) {};
+    \draw (3,2) node[below = 10pt] {$t_4$};
+    \node[draw,rectangle,yscale=4] (t4) at (3, 2) {};
+    \draw (3,0) node[below = 10pt] {$t_5$};
+    \node[draw,rectangle,yscale=4] (t5) at (3, 0) {};
+    \draw (0,-4) node[below = 10pt] {$t_6$};
+    \node[draw,rectangle,yscale=4] (t6) at (0, -4) {};
+    \draw (3,-2) node[below = 10pt] {$t_7$};
+    \node[draw,rectangle,yscale=4] (t7) at (3, -2) {};
+    \draw (3,-4) node[below = 10pt] {$t_8$};
+    \node[draw,rectangle,yscale=4] (t8) at (3, -4) {};
+    \draw (3,4) node[below = 10pt] {$t_9$};
+    \node[draw,rectangle,yscale=4] (t9) at (3, 4) {};
+    \draw (0,6) node[below = 10pt] {$t_10$};
+    \node[draw,rectangle,yscale=4] (t10) at (0, 6) {};
+
+
+
+    % Liste des arcs
+    \draw[->,>=latex] (po) to[out=135,in=-135] (t1);
+    \draw[->,>=latex] (t1) to[out=-45,in=45] (po);
+    \draw[->,>=latex] (po) -- (t2);
+    \draw[->,>=latex] (t2) -- (lettre);
+    \draw[->,>=latex] (po) -- (t3);
+    \draw[->,>=latex] (t3) -- (pf);
+    \draw[->,>=latex] (lettre) -- (t4);
+    \draw[->,>=latex] (t4) -- (operateur);
+    \draw[->,>=latex] (lettre) -- (t5);
+    \draw[->,>=latex] (t5) -- (pf);
+    \draw[->,>=latex] (pf) to[out=-45,in=45] (t6);
+    \draw[->,>=latex] (t6) to[out=135,in=-135] (pf);
+    \draw[->,>=latex] (pf) -- (t7);
+    \draw[->,>=latex] (t7) -- (operateur);
+    \draw[->,>=latex] (pf) -- (t8);
+    \draw[->,>=latex] (t8) -- (EOF);
+    \draw[->,>=latex] (operateur) -- (t9);
+    \draw[->,>=latex] (t9) -- (lettre);
+    \draw[->,>=latex] (operateur) to[out=90,in=0] (t10);
+    \draw[->,>=latex] (t10) -- (po);
+    %\draw[->,>=latex] (t6) to[out=-90,in=-90] (P1);
+
+    % Marquage
+    \draw [fill](-6,4) circle (0.1) ;
+  \end{tikzpicture}
+  \caption{Réseau de petri associé à une expression complètement parenthésée} \label{fig:M1}
+\end{figure}
+
+
