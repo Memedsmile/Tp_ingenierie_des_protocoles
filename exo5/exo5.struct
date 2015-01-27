@@ -1,0 +1,36 @@
+Struct version 3.3.0 -- 12/15/14 -- LAAS/CNRS
+
+parsed net exo5_1
+
+6 places, 5 transitions
+
+net exo5_1
+tr t1 p1 -> p2 p3 
+tr t2 p2 p5 -> p4 
+tr t3 p4 -> p6 
+tr t4 p4 p6 -> p1 p5 
+tr t5 p2 p3 -> p1 
+pl p1 (1)
+pl p5 (1)
+
+0.000s
+
+P-SEMI-FLOWS GENERATING SET ------------------------------------- 
+
+invariant
+
+p1*2 p2 p3 p4 p6
+p1 p3 p4 p5 p6
+
+0.000s
+
+T-SEMI-FLOWS GENERATING SET ------------------------------------- 
+
+not consistent
+
+t1 t5
+
+0.000s
+
+ANALYSIS COMPLETED  --------------------------------------------- 
+
