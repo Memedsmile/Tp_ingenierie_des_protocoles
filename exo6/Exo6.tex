@@ -1,6 +1,15 @@
 \subsection{Question 6}
 Voici le Rdp permettant de savoir si une expression est bien une expression complètement parenthésée:
 
+Note: L'énoncé étant incorrect, nous avons choisi de modifier la grammaire de la façon suivante afin de mener à bien le reste de l'exercice:
+
+\begin{itemize}
+    \item '(' => '(' OU une lettre OU ')'
+    \item une lettre => opérateur OU ')'
+    \item ')' => ')' OU opérateur OU EOF
+    \item opérateur => '(' OU une lettre
+\end{itemize}
+
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
