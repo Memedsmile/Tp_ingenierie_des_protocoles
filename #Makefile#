@@ -1,0 +1,5 @@
+ : rapport.tex
+	pdflatex rapport.tex
+
+clean :
+	rm -f *~ *.o *.aux *.log *.out *.nav *.toc \#*\#
