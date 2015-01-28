@@ -1,0 +1,75 @@
+\subsection{Question 1}
+ Le protocole peut être décrit par le réseau suivant : \\
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+
+    % Liste des places
+    \draw (0,8) node[below right = 2pt] {$P_1$};
+    \node[draw,circle,scale=2] (P1) at (0, 8) {};
+    \draw (0,4) node[below right = 2pt] {$P_2$};
+    \node[draw,circle,scale=2] (P2) at (0,4) {};
+    \draw (0,0) node[below right = 2pt] {$P_3$};
+    \node[draw,circle,scale=2] (P3) at (0, 0) {};
+    \draw (-2,-4) node[below right = 2pt] {$P_4$};
+    \node[draw,circle,scale=2] (P4) at (-2,-4) {};
+    \draw (-2,-8) node[below right = 2pt] {$P_5$};
+    \node[draw,circle,scale=2] (P5) at (-2, -8) {};
+     \draw (2,-4) node[below right = 2pt] {$P_6$};
+    \node[draw,circle,scale=2] (P6) at (2, -4) {};
+    \draw (2,-8) node[below right = 2pt] {$P_7$};
+    \node[draw,circle,scale=2] (P7) at (2,-8) {};
+    \draw (4,-8) node[below right = 2pt] {$P_8$};
+    \node[draw,circle,scale=2] (P8) at (4, -8) {};
+    \draw (2,-12) node[below right = 2pt] {$P_9$};
+    \node[draw,circle,scale=2] (P9) at (2,-12) {};
+
+     % Liste des transitions
+    \draw (0,10) node[below = 10pt] {$t_1$};
+    \node[draw,rectangle,yscale=4] (t1) at (0, 10) {};
+    \draw (0,6) node[below right = 4pt] {$t_2$};
+    \node[draw,rectangle,yscale=4] (t2) at (0, 6) {};
+    \draw (0,2) node[below right= 4pt] {$t_3$};
+    \node[draw,rectangle,yscale=4] (t3) at (0, 2) {};
+    \draw (-2,-2) node[below = 10pt] {$t_4$};
+    \node[draw,rectangle,yscale=4] (t4) at (-2, -2) {};
+    \draw (-2,-6) node[below = 10pt] {$t_5$};
+    \node[draw,rectangle,yscale=4] (t5) at (-2, -6) {};
+    \draw (2,-2) node[below right = 3pt] {$t_6$};
+    \node[draw,rectangle,yscale=4] (t6) at (2, -2) {};
+    \draw (2,-6) node[below right = 3pt] {$t_7$};
+    \node[draw,rectangle,yscale=4] (t7) at (2, -6) {};
+    \draw (4,-6) node[below right = 3pt] {$t_8$};
+    \node[draw,rectangle,yscale=4] (t8) at (4, -6) {};
+    \draw (2,-10) node[below right = 3pt] {$t_9$};
+    \node[draw,rectangle,yscale=4] (t9) at (2, -10) {};
+    \draw (2,-14) node[below right = 3pt] {$t_10$};
+    \node[draw,rectangle,yscale=4] (t10) at (2, -14) {};
+
+    % Liste des arcs
+    \draw[->,>=latex] (t1) -- (P1);
+    \draw[->,>=latex] (P1) -- (t2);
+    \draw[->,>=latex] (t2) -- (P2);
+    \draw[->,>=latex] (P2) -- (t3);
+    \draw[->,>=latex] (t3) -- (P3);
+    \draw[->,>=latex] (P3) -- (t4);
+    \draw[->,>=latex] (t4) -- (P4);
+    \draw[->,>=latex] (P4) -- (t5);
+    \draw[->,>=latex] (t5) -- (P5);
+    \draw[->,>=latex] (P5) -- (t10);
+    \draw[->,>=latex] (P3) -- (t6);
+    \draw[->,>=latex] (t6) -- (P6);
+    \draw[->,>=latex] (P6) -- (t7);
+    \draw[->,>=latex] (P6) -- (t8);
+    \draw[->,>=latex] (t7) -- (P7);
+    \draw[->,>=latex] (t8) -- (P8);
+    \draw[->,>=latex] (P7) -- (t9);
+    \draw[->,>=latex] (t9) -- (P9);
+    \draw[->,>=latex] (P9) -- (t10);
+    \draw[->,>=latex] (P8) -- (t10);
+
+
+  \end{tikzpicture}
+  \caption{Réseau de petri associé à l'exercice 5} \label{fig:M5}
+\end{figure}
