@@ -1,4 +1,4 @@
-## Latex files 
+## Latex files
 *.aux
 *.log
 *.pdf
@@ -7,3 +7,7 @@
 ## Emacs files
 \#*\#
 *~
+
+##OS X Files
+.DS_Store
+
