@@ -1,0 +1,34 @@
+p 50.0 60.0 ci 0 n
+p 50.0 165.0 di 1 w
+p 50.0 285.0 c'i 0 n
+p 215.0 150.0 {di=1} 0 n
+p 235.0 50.0 {ci-1} 0 n
+p 360.0 180.0 {fi=1} 0 n
+p 480.0 175.0 p6 0 n
+p 535.0 60.0 fi 0 n
+t 45.0 110.0 ri 0 w n
+t 120.0 155.0 ai 0 w n
+t 285.0 275.0 ei 0 w n
+t 415.0 190.0 t3 0 w n
+t 520.0 125.0 t4 0 w n
+e ci ri 1 n
+e ri di 1 n
+e di ri 1 n
+e di ai 1 n
+e c'i ai 1 n
+e ri c'i 1 n
+e c'i ei 1 n
+e ai {di=1} 1 n
+e ei {di=1} 1 n
+e {fi=1} ei 1 n
+e ri {ci-1} 1 n
+e {ci-1} t4 1 n
+e t4 ci 1 n
+e {fi=1} t3 1 n
+e t3 p6 1 n
+e p6 t4 1 n
+e t4 p6 1 n
+e t4 fi 1 n
+h exo7_2
+
+
