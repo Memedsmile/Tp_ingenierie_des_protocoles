@@ -1,3 +1,6 @@
+\subsection{Question 1.1}
+On va utiliser l'algorithme de Farkas pour calculer les P-semi flots du premier schéma.
+
 \begin{center}
 
 {\Huge C}\qquad =\qquad $\bordermatrix{
@@ -12,7 +15,7 @@ c'0&0&0&0&2&-1\cr
 
 {\Huge $\downarrow$}
 
-{\Huge C}\qquad =\qquad $\bordermatrix{
+$\bordermatrix{
 &t_2&t_3&t_4&t_5\cr
 d0+p0&-1&0&0&0\cr
 p1&1&-1&0&0\cr
@@ -23,9 +26,9 @@ c'0&0&0&2&-1\cr
 
 {\Huge $\downarrow$}
 
-{\Huge C}\qquad =\qquad $\bordermatrix{
+$\bordermatrix{
 &t_3&t_4&t_5\cr
-d0+p0+p1&-1&0&0\cr
+===d0+p0+p1&-1&0&0\cr
 f0&1&0&0\cr
 c0&0&-1&1\cr
 c'0&0&2&-1\cr
@@ -33,11 +36,90 @@ c'0&0&2&-1\cr
 
 {\Huge $\downarrow$}
 
-{\Huge C}\qquad =\qquad $\bordermatrix{
+$\bordermatrix{
 &t_4&t_5\cr
-d0+p0+p1+f0&0&0\cr
+====d0+p0+p1+f0&0&0\cr
 c0&-1&1\cr
 c'0&2&-1\cr
 }$
+
+
+\vspace{1cm}
+
+On trouve donc 2 P-semi flots :\\
+$f_1 = (1\ 1\ 1\ 0\ 0\ 0)$\\
+$f_2 = (1\ 1\ 1\ 1\ 0\ 0)$
+
+\end{center}
+
+
+\subsection{Question 1.2}
+On va utiliser l'algorithme de Farkas pour calculer les P-semi flots du deuxième schéma.
+
+\begin{center}
+
+{\Huge C}\qquad =\qquad $\bordermatrix{
+&ai&ei&ri&t1&t2\cr
+ci&0&0&-1&0&1\cr
+c'i&-1&-1&1&0&0\cr
+ci-1&0&0&1&0&-1\cr
+di&-1&0&0&0&0\cr
+di-1&1&1&0&0&0\cr
+fi-1&0&-1&0&-1&0\cr
+fi&0&0&0&0&1\cr
+p1&0&0&0&1&0\cr
+}$
+
+{\Huge $\downarrow$}
+
+$\bordermatrix{
+&ei&ri&t1&t2\cr
+ci&0&-1&0&1\cr
+c'i+di-1&0&1&0&0\cr
+ci-1&0&1&0&-1\cr
+di+di-1&1&0&0&0\cr
+fi-1&-1&0&-1&0\cr
+fi&0&0&0&1\cr
+p1&0&0&1&0\cr
+}$
+
+{\Huge $\downarrow$}
+
+$\bordermatrix{
+&ri&t1&t2\cr
+ci&-1&0&1\cr
+c'i+di-1&1&0&0\cr
+ci-1&1&0&-1\cr
+di+di-1+fi-1&0&-1&0\cr
+fi&0&0&1\cr
+p1&0&1&0\cr
+}$
+
+{\Huge $\downarrow$}
+
+$\bordermatrix{
+&t1&t2\cr
+c'i+di-1+ci&0&1\cr
+ci-1+ci&0&0\cr
+di+di-1+fi-1&-1&0\cr
+fi&0&1\cr
+p1&1&0\cr
+}$
+
+{\Huge $\downarrow$}
+
+$\bordermatrix{
+&t2\cr
+c'i+di-1+ci&1\cr
+di+di-1+fi-1+p1&0\cr
+fi&1\cr
+}$
+
+\vspace{1cm}
+
+On trouve donc 2 P-semi flots :\\
+$f_1 = (0\ 1\ 1\ 0\ 0\ 0\ 0\ 0)$\\
+$f_2 = (0\ 0\ 1\ 1\ 1\ 0\ 0\ 1)$
+
 
 \end{center}
