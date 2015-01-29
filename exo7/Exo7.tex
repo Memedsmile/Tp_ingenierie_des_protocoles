@@ -1,4 +1,13 @@
 \subsection{Question 1.1}
+
+Tina nous donne le p-flot suivant pour le premier schéma :\\
+
+\begin{center}
+
+\includegraphics[width=0.7\textwidth]{exo7/tina_7_1.png}\\
+
+\end{center}
+
 On va utiliser l'algorithme de Farkas pour calculer les P-semi flots du premier schéma.
 
 \begin{center}
@@ -28,7 +37,7 @@ c'0&0&0&2&-1\cr
 
 $\bordermatrix{
 &t_3&t_4&t_5\cr
-===d0+p0+p1&-1&0&0\cr
+d0+p0+p1&-1&0&0\cr
 f0&1&0&0\cr
 c0&0&-1&1\cr
 c'0&0&2&-1\cr
@@ -38,7 +47,7 @@ c'0&0&2&-1\cr
 
 $\bordermatrix{
 &t_4&t_5\cr
-====d0+p0+p1+f0&0&0\cr
+d0+p0+p1+f0&0&0\cr
 c0&-1&1\cr
 c'0&2&-1\cr
 }$
@@ -46,17 +55,27 @@ c'0&2&-1\cr
 
 \vspace{1cm}
 
-On trouve donc 2 P-semi flots :\\
-$f_1 = (1\ 1\ 1\ 0\ 0\ 0)$\\
+On trouve donc un P-semi flot :\\
 $f_2 = (1\ 1\ 1\ 1\ 0\ 0)$
+
+On obtient donc le même résultat que TINA.
 
 \end{center}
 
 
 \subsection{Question 1.2}
-On va utiliser l'algorithme de Farkas pour calculer les P-semi flots du deuxième schéma.
+Tina nous donne le p-flot suivant pour le second schéma :\\
 
 \begin{center}
+
+\includegraphics[width=0.7\textwidth]{exo7/tina_7_2.png}\\
+
+\end{center}
+
+On va utiliser l'algorithme de Farkas pour calculer les P-semi flots du second schéma.
+
+\begin{center}
+
 
 {\Huge C}\qquad =\qquad $\bordermatrix{
 &ai&ei&ri&t1&t2\cr
@@ -119,7 +138,17 @@ fi&1\cr
 
 On trouve donc 2 P-semi flots :\\
 $f_1 = (0\ 1\ 1\ 0\ 0\ 0\ 0\ 0)$\\
-$f_2 = (0\ 0\ 1\ 1\ 1\ 0\ 0\ 1)$
-
+$f_2 = (0\ 0\ 1\ 1\ 1\ 0\ 0\ 1)$\\
 
 \end{center}
+
+On obtient donc le même résultat que TINA.
+
+
+\subsection{Question 2.1}
+Pour le premier schéma la séquence maximale est:\\
+t1 -> n*t4 -> t2 -> 2n*t5 -> t3 
+
+\subsection{Question 2.2}
+Pour le second schéma la séquence maximale est:\\
+t1 -> n*t4 -> t2 -> 2n*t5 -> t3 
