@@ -213,8 +213,8 @@ Ainsi $M_0 = (1\ 0\ 0\ 0\ 0\ 0\ 1)$ indique qu'il y a un jeton en E et en R.
     \draw[->,>=latex] (M3) to[bend left=30]  node[midway, left]{$t_6$} (M5);
     \draw[->,>=latex] (M4) to[bend right=45] node[midway,left]{$t_7$} (M1);
     \draw[->,>=latex] (M5) -- (M6) node[midway, below]{$t_7$};
-    \draw[->,>=latex] (M6) -- (M6) node[midway, below]{$t_7$};
-    \draw[->,>=latex] (M6) -- (M6) node[midway, below]{$t_7$};
+    \draw[->,>=latex] (M6) to[out=230,in=-30] node[midway, below]{$t_4$} (-4,-1) to[out=150,in=230] (M2);
+    \draw[->,>=latex] (M6) -- (M3) node[midway, below]{$t_8$};
 
   \end{tikzpicture}
   \caption{Graphe des marquages accessibles} \label{fig:M10}
@@ -335,7 +335,7 @@ $F_4\ =\ (0\ 0\ 0\ 0\ 0\ 1\ 1\ 1)$\\
 
 \vspace{0.5cm}
 
-Ce qui est confirmer par le logiciel TINA :\\
+Ce qui est confirmé par le logiciel TINA :\\
 \includegraphics[width=0.35\textwidth]{images/tflots2.png}\\
 \end{center}
 
@@ -393,6 +393,8 @@ Nous avons choisit d'étiqueter les transitions du réseau de la manière suivan
 \item $T_7$ reçoit l'étiquette $M_{Re}$ pour ``Message renvoyé''
 \item $T_8$ reçoit l'étiquette $M_P$ pour ``Message Perturbé''
 \end{itemize}
+
+\begin{comment}
 
 \begin{figure}[H]
   \centering
@@ -475,4 +477,70 @@ Nous avons choisit d'étiqueter les transitions du réseau de la manière suivan
   \end{tikzpicture}
   \caption{Réseau de petri associé au protocole de communication après étiquetage des transitions} \label{fig:M1}
 \end{figure}
+\end{comment}
+
+On crée le graphe de séquence suivant : \\
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    % Liste des Marquage
+    \node (T1) at (0,4) {$T_1$};
+    \node (T2) at (-1,0) {$T_2$};
+    \node (T3) at (-3,0) {$T_3$};
+    \node (T4) at (-2,2) {$T_4$};
+    \node (T5) at (1,0) {$T_5$};
+    \node (T6) at (3,0) {$T_6$};
+    \node (T7) at (0,-2) {$T_7$};
+    \node (T8) at (2,2) {$T_8$};
+    % Liste des arcs
+    \draw[->,>=latex] (T1) -- (T4);
+    \draw[->,>=latex] (T1) -- (T8);
+    \draw[->,>=latex] (T4) -- (T3);
+    \draw[->,>=latex] (T4) -- (T2);
+    \draw[->,>=latex] (T8) -- (T5);
+    \draw[->,>=latex] (T8) -- (T6);
+    \draw[->,>=latex] (T3) -- (T7);
+    \draw[->,>=latex] (T2) to[bend right=30] (T1);
+    \draw[->,>=latex] (T5) -- (T7);
+    \draw[->,>=latex] (T6) -- (T7);
+    \draw[->,>=latex] (T7) to[out=200,in=-80] (-3.5,-0.5) to[out=100, in=200] (T4);
+    \draw[->,>=latex] (T7) to[out=-20,in=-80] (3.5,0.5) to[out=100, in=-20] (T8);
+
+  \end{tikzpicture}
+  \caption{Graphe de séquences} \label{fig:M10}
+\end{figure}
+
+Et on déduit le langage définit par l'expression :\\
+\begin{center}
+$(M_EM_RM_A)^*|M_E[(M_RY_A|M_P(Y_NM_P))M_{Re}]^*$
+\end{center}
+
+\subsection{Question 9}
+
+Soit $\{M\}$ l'ensemble des marquage accessible depuis $M_0$\\
+Soit $v : \{M\} \rightarrow \mathbb{N}$ l'application telle que :\\
+$\forall M_i \in \{M\} : v(M_i) = 1-M_i(E)$\\
+Il est clair que $v(M_i) = 0 \Leftrightarrow M_i = M_0$\\
+\vspace{0.5cm}
+donc $v$ est une norme pour $M_0$ \\
+Alors $M_0$ est un etat d'accueil et le reseau est réinitialisable.
+
+
+\subsection{Question 10}
+$\forall M_i, \exists t$ une transition franchissable depuis $M_i$.\\
+D'où le réseau est sans blocage.
+
+\subsection{Question 11}
+
+On peut trouver une séquence $S$ qui contienne tout les transitions.\\
+ex : $S = t_1,t_4,t_3,t_7,t_8,t_5,t_7,t_8,t_6,t_4,t_2$\\
+Donc le réseau est vivant
+
+\subsection{Question 12}
+Le graphe des marquage ne contient pas de noeud feuille donc le réseau est bien sans blocage.\\
+Il existe un chemin dans le graphe passant par toutes les transitions donc le réseau est bien vivant.\\
+$\forall M_i, \exists c$ un chemin de $M_i$ à $M_0$ donc le reseau est réinitialisable.
+
+\subsection{Question 13}
 

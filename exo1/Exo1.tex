@@ -618,6 +618,8 @@ Ainsi, il y a bien une exclusion mutuelle entre ces places.
 
 \subsection{Question 5}
 
+Nous pouvons construire le graphe de marquage suivant :
+
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
@@ -655,6 +657,11 @@ Ainsi, il y a bien une exclusion mutuelle entre ces places.
 
 \vspace{1cm}
 
+Ceci est confirmé par le logiciel TINA :
+\begin{center}
+  \includegraphics[width=0.25\textwidth]{images/marquage_pochoir.png}
+\end{center}
+
 \subsection{Question 6}
 
 \vspace{1cm}
@@ -673,8 +680,6 @@ P_7&0&0&0&0&1&-1\cr
 }$
 
 \end{center}
-
-\newpage
 
 \subsection{Question 7}
 On va utiliser l'algorithme de Farkas pour calculer les P-semi flots.
@@ -731,9 +736,14 @@ $f_2 = (1\ 0\ 1\ 0\ 1\ 0\ 1)$
 
 \end{center}
 
+Ceci est confirmé par le logiciel TINA :
+\begin{center}
+  \includegraphics[width=0.25\textwidth]{images/pflot_pochoir.png}
+\end{center}
+
 \subsection{Question 8}
 
-Le graphe des marquages étant réinitialisable (sans feuille), le réseau est donc sans blocage.
+Le graphe des marquages étant sans feuille, le réseau est donc sans blocage.
 
 \subsection{Question 9}
 
@@ -742,3 +752,5 @@ Le graphe des marquages étant réinitialisable (sans feuille), le réseau est d
   \item $s_1 = P_1 \rightarrow P_2 \rightarrow P_4 \rightarrow P_6 \rightarrow P_1$ est un circuit élémentaire
   \item $s_2 = P_1 \rightarrow P_3 \rightarrow P_5 \rightarrow P_7 \rightarrow P_1$ est un circuit élémentaire
 \end{itemize}
+
+\newpage

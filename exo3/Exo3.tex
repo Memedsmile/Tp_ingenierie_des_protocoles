@@ -1,0 +1,66 @@
+\subsection{Question 1}
+
+\vspace{1cm}
+
+\begin{center}
+
+{\Huge C}\qquad =\qquad $\bordermatrix{
+   &a_0&a_1&a_2&a_3&a_4&a_5&b_1&b_2&b_3&b_4&b_5\cr
+A_0&-1 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0\cr
+A_1& 1 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\cr
+A_2& 0 & 1 &-1 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\cr
+A_3& 0 & 0 & 1 & 0 &-1 &-1 & 0 & 0 & 0 & 0 & 0\cr
+B_1& 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 1 & 1 & 1\cr
+B_2& 0 & 0 & 0 & 0 & 0 & 0 & 1 &-1 &-1 & 0 & 0\cr
+B_3& 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 &-1 &-1\cr
+CC & 0 &-1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\cr
+CDA& 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 1 & 0 & 0\cr
+CDB& 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 &-1 & 0\cr
+DC & 1 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0\cr
+DDA& 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 &-1 & 0 &-1\cr
+DDB& 0 & 0 & 0 &-1 & 0 &-1 & 0 & 1 & 0 & 0 & 0\cr
+}$
+
+\end{center}
+
+\subsection{Question 2}
+
+Soit $F=(f_{A_0}\ f_{A_1}\ f_{A_2}\ f_{A_3}\ f_{B_1}\ f_{B_2}\ f_{B_3}\ f_{CC}\ f_{CDA}\ f_{CDB}\ f_{DC}\ f_{DDA}\ f_{DDB})$ le vecteur générique de P-semi-flots.
+
+TINA nous donne 6 P-semi-flots :\\
+$F_1\ =\ (1\ 1\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0)$\\
+$F_2\ =\ (1\ 0\ 1\ 1\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 0)$\\
+$F_3\ =\ (0\ 0\ 1\ 0\ 1\ 0\ 0\ 1\ 0\ 1\ 0\ 1\ 0)$\\
+$F_4\ =\ (0\ 0\ 0\ 1\ 1\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 0)$\\
+$F_5\ =\ (1\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 1\ 0\ 1\ 0\ 1)$\\
+$F_6\ =\ (1\ 1\ 1\ 0\ 1\ 1\ 0\ 0\ 1\ 1\ 0\ 1\ 1)$\\
+
+\subsection{Question 3}
+
+Soit $F=(f_{a_0}\ f_{a_1}\ f_{a_2}\ f_{a_3}\ f_{a_4}\ f_{a_5}\ f_{b_1}\ f_{b_2}\ f_{b_3}\ f_{b_4}\ f_{b_4})$ le vecteur générique de T-semi-flots.
+
+TINA nous donne 3 T-semi-flots :\\
+$F_1\ =\ (1\ 1\ 1\ 0\ 1\ 0\ 1\ 0\ 1\ 0\ 0)$\\
+$F_2\ =\ (1\ 1\ 0\ 1\ 0\ 0\ 1\ 1\ 0\ 1\ 0)$\\
+$F_3\ =\ (1\ 1\ 1\ 0\ 0\ 1\ 1\ 1\ 0\ 0\ 1)$\\
+
+\subsection{Question 4}
+
+Soit $\{M\}$ l'ensemble des marquage accessible depuis $M_0$\\
+Soit $v : \{M\} \rightarrow \mathbb{N}$ l'application telle que :\\
+$\forall M_i \in \{M\} : v(M_i) = 2-M_i(A_0)-M_i(B_1)$\\
+On a $v(M_i) = 0 \Leftrightarrow M_i = M_0$ car toutes les transitions permettant de remettre un jeton en $A_0$ ne peuvent être sensibiliser en même temps que celles qui remettent des jeton dans $B_1$ donc $A_0$ et $B_1$ ne peuvent recevoir un jeton en même temps et le semi-flots nous apprenent que les places sont toutes bornées à 1.\\
+donc $\forall M_i,\ si\ M_i(A_0) =1\ et\ M_i(B_1) = 1\ alors\ M_i = M_0$ 
+\vspace{0.5cm}
+donc $v$ est une norme pour $M_0$ \\
+Alors $M_0$ est un etat d'accueil et le reseau est réinitialisable.
+
+\subsection{Question 5}
+
+\begin{itemize}
+\item Les P-semi-flots nous apprennent que toutes les places sont bornées à 1.
+\item Les T-flots nous apprennent que toutes les transitions sont franchissable depuis un marquage $M_i \in \{M\}$
+En outre, le reseau étant réinitiable, on va pouvoir trouver une séquence $S$ qui contienne tout les transitions et qui repasse par $M_0$.\\
+ex : $S = a_0,b_1,a_1,a_2,b_3,a_4,a_0,b_1,a_1,b_2,a_3,b_4,a_0,b_1,a_1,a_2,b_2,b_5,a_5$\\
+Donc le réseau est vivant
+\end{itemize}
