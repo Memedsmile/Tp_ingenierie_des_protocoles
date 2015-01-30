@@ -1,4 +1,8 @@
 \subsection{Question 1}
+En mettant $p$ jetons dans la place $Producer$, on représente $p$ producteurs qui vont pouvoir créer leur produit en parallèle.
+En effet, chaque jeton consommé par la transition $Produce$ dans $Producer$ représente l'action d'un producteur qui pourra se produire un autre objet lorsque son jeton sera revenu en $Producer$, c'est à dire quand son produit sera fini et envoyé.
+De même, en mettant $c$ jetons en place $Consumer$, on représente la présence de $c$ clients qui peuvent receptionner un seul produit à la fois.
+
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
@@ -47,6 +51,8 @@
 \end{figure}
 
 \subsection{Question 2}
+En rajoutant une place $Borne$ qui sera rempli par la senbilisation de $Receive$ et vider par celle de $Send$, on limite le nombre de message envoyé et donc le nombre de jeton dans la place $Buffer$.
+
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
@@ -62,8 +68,8 @@
     \node[draw,circle,scale=2] (PR) at (4, -1) {}; 
     \draw (0,0) node[below right = 2pt] {$Buffer$};
     \node[draw,circle,scale=2] (B) at (0, 0) {}; 
-    \draw (0,-2) node[below right = 2pt] {$Compteur$};
-    \node[draw,circle,scale=2] (CPT) at (0, -2) {}; 
+    \draw (0,-2) node[below right = 2pt] {$Borne$};
+    \node[draw,circle,scale=2] (Br) at (0, -2) {}; 
 
 
      % Liste des transitions
@@ -87,8 +93,8 @@
     \draw[->,>=latex] (TR) -- (PR);
     \draw[->,>=latex] (PR) -- (TC);
     \draw[->,>=latex] (TC) to [out=0,in=0] (C);
-    \draw[->,>=latex] (TR) -- (CPT);
-    \draw[->,>=latex] (CPT) -- (TS);
+    \draw[->,>=latex] (TR) -- (Br);
+    \draw[->,>=latex] (Br) -- (TS);
 
     % Marquage
     \node (p) at (-4,3) {p};
@@ -100,6 +106,9 @@
 \end{figure}
 
 \subsection{Question 3}
+En limitant le marquage de la place $Borne$ à une unité, on s'assure qu'un message ne sera envoyé que lorsque le précédant aura été reçu.
+Ainsi il sont forcément reçu dans l'ordre d'envoie.
+
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}

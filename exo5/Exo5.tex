@@ -6,25 +6,25 @@
   \begin{tikzpicture}
 
     % Liste des places
-    \draw (-6,2) node[below right = 2pt] {$P_1$};
+    \draw (-6,2) node[below right = 3pt] {$P_1$};
     \node[draw,circle,scale=2] (P1) at (-6, 2) {};
-    \draw (-2,2) node[below right = 2pt] {$P_2$};
+    \draw (-2,2) node[below right = 3pt] {$P_2$};
     \node[draw,circle,scale=2] (P2) at (-2, 2) {};
-    \draw (-4,0) node[below right = 2pt] {$P_3$};
+    \draw (-4,0) node[below right = 3pt] {$P_3$};
     \node[draw,circle,scale=2] (P3) at (-4,0) {};
-    \draw (2,2) node[below right = 2pt] {$P_4$};
+    \draw (2,2) node[below right = 3pt] {$P_4$};
     \node[draw,circle,scale=2] (P4) at (2, 2) {}; %%
-    \draw (0,0) node[below right = 2pt] {$P_5$}; 
+    \draw (0,0) node[below right = 3pt] {$P_5$}; 
     \node[draw,circle,scale=2] (P5) at (0,0) {};
-    \draw (2,-2) node[below left = 2pt] {$P_6$};
+    \draw (2,-2) node[below left = 3pt] {$P_6$};
     \node[draw,circle,scale=2] (P6) at (2, -2) {};
 
     % Liste des transitions
-    \draw (-4,2) node[below = 10pt] {$t_1$};
+    \draw (-4,2) node[below right= 2pt] {$t_1$};
     \node[draw,rectangle,yscale=4] (t1) at (-4, 2) {};
-    \draw (2,0) node[below = 10pt] {$t_3$};
+    \draw (2,0) node[below right= 2pt] {$t_3$};
     \node[draw,rectangle,yscale=4] (t3) at (2, 0) {};
-    \draw (0,2) node[below = 10pt] {$t_2$};
+    \draw (0,2) node[below right= 2pt] {$t_2$};
     \node[draw,rectangle,yscale=4] (t2) at (0, 2) {};
     \draw (-6,-0) node[below = 10pt] {$t_5$};
     \node[draw,rectangle,yscale=4] (t5) at (-6, 0) {};
@@ -57,6 +57,18 @@
 
 Quand l'utilisateur rentre en communication,l'attente du controleur est symbolisé par le faite qu'il n'y est pas de jeton dans celui-ci.
 
+\subsection{Question 2}
+
+Lorsque l'usager décroche, la transition $T_1$ est sensibilisée, la mémorisation de cet évènement est représentée par la production d'un jeton en $P_3$.
+La demande de selection de ligne est représenté par la transition $t_2$ et le controleur par la place $P_5$. En effet, si le controleur accepte la demande de selection de ligne, alors il y a un jeton en $P_5$.
+Ainsi, l'usager entre en communication par la production d'un jeton en $P_4$.
+Le raccrochage de l'usager est représenter par la transition $t_4$ qui renvoie l'usager à l'état de repos en $P_1$, et fait de même pour le controleur en $P_5$.
+Si la ligne est libérer, on sensibilise la transition $t_3$ pour mettre l'usager et le controleur en état de faux appel en $P_6$.
+Le fait de décrocher et raccrocher successivement se fait par la transition $T_5$
+
+
+\subsection{Question 3}
+
 \begin{center}
 
 {\Huge C}\qquad =\qquad $\bordermatrix{
@@ -71,7 +83,6 @@ P_6&0&0&1&-1&0\cr
 
 \end{center}
 
-\subsection{Question 2}
 Soit $f=(f_1\ f_2\ f_3\ f_4\ f_5\ f_6)$ le vecteur générique de P-flots.\\
 On cherche : 
 \begin{center}
@@ -115,7 +126,7 @@ f_4 = 1 \ (0 \ -1 \ -3 \ 1 \ 2 \ 1)
 $
 
 \end{center}
-\subsection{Question 3}
+\subsection{Question 4}
 Soit $f=(f_1\ f_2\ f_3\ f_4\ f_5\ f_6)$ le vecteur générique de P-semiFlots.\\
 \begin{center}
 Le calcul a été réalisé avec Tina , on trouve 2 P-semiFlots: \\
