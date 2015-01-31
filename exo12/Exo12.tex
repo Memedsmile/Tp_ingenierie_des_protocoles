@@ -100,3 +100,104 @@
   \end{tikzpicture}
   \caption{Réseau de petri associé à une expression complètement parenthésée} \label{fig:M1}
 \end{figure}
+
+\subsection{Question 2}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+
+    % Liste des places
+    \draw (0,-8) node[below left = 2pt] {$O_7$};
+    \draw (0,-8) node[below right = 2pt] {$\{a,b\}$};
+    \node[draw,circle,scale=2] (o7) at (0, -8) {};
+    \draw (6,-2.5) node[above right = 2pt] {$O_6$};
+    \draw (6,-2.5) node[below right = 2pt] {$\{a,b\}$};
+    \node[draw,circle,scale=2] (o6) at (6, -2.5) {};
+    \draw (6,5) node[above right = 2pt] {$0_5$};
+    \draw (6,5) node[below right = 2pt] {$\{a,b\}$};
+    \node[draw,circle,scale=2] (o5) at (6, 5) {};
+    \draw (2,9) node[above right = 2pt] {$0_4$};
+    \draw (2,9) node[above right = 10pt] {$\{a,b\}$};
+    \node[draw,circle,scale=2] (o4) at (2, 9) {};
+    \draw (-2,9) node[above left = 10pt] {$0_3$};
+    \draw (-2,9) node[above left = 3pt] {$\{a,b\}$};
+    \node[draw,circle,scale=2] (o3) at (-2, 9) {};
+    \draw (-5,3) node[above right = 2pt] {$0_2$};
+    \draw (-5,3) node[left = 10pt] {$\{a,b\}$};
+    \node[draw,circle,scale=2] (o2) at (-5, 3) {};
+    \draw (-5,-3) node[above right = 2pt] {$0_1$};
+     \draw (-5,-3) node[left = 10pt] {$\{a,b\}$};
+    \node[draw,circle,scale=2] (o1) at (-5, -3) {};
+    \draw (-3,-2.5) node[below right = 2pt] {$E_1$};
+    \draw (-3,-2.5) node[above right = 4pt] {$\{e\}$};
+    \node[draw,circle,scale=2] (e1) at (-3, -2.5) {};
+	\draw (-3,2.5) node[below right = 2pt] {$E_2$};
+	\draw (-3,2.5) node[right = 5pt] {$\{e\}$};
+    \node[draw,circle,scale=2] (e2) at (-3, 2.5) {};
+    \draw (-2,6.5) node[below right = -100pt] {$E_3$};
+    \draw (-2,6.5) node[above left = 4pt] {$\{e\}$};
+    \node[draw,circle,scale=2] (e3) at (-2, 6.5) {};
+    \draw (2, 7) node[below right = 2pt] {$E_4$};
+    \draw (2,7) node[above = 7pt] {$\{e\}$};
+    \node[draw,circle,scale=2] (e4) at (2, 7) {};
+    \draw (4,5) node[below right = 4pt] {$E_5$};
+    \draw (4,5) node[below left = 4pt] {$\{e\}$};
+    \node[draw,circle,scale=2] (e5) at (4, 5) {};
+
+    % Liste des transitions
+    \draw (-3.5,-6) node[below = 10pt] {$t_1$};
+    \node[draw,rectangle,yscale=4] (t1) at (-3.5, -6) {};
+    \draw (-5,0) node[left = 4pt] {$t_2$};
+    \node[draw,rectangle,yscale=4] (t2) at (-5, 0) {};
+    \draw (-5,6) node[left = 4pt] {$t_3$};
+    \node[draw,rectangle,yscale=4] (t3) at (-5, 6) {};
+    \draw (0,9) node[above = 10pt] {$t_4$};
+    \node[draw,rectangle,yscale=4] (t4) at (0, 9) {};
+    \draw (4,8) node[below = 10pt] {$t_5$};
+    \node[draw,rectangle,yscale=4] (t5) at (4, 8) {};
+    \draw (6,1) node[below right = 4pt] {$t_6$};
+    \node[draw,rectangle,yscale=4] (t6) at (6, 1) {};
+    \draw (3.5,-5.5) node[below = 10pt] {$t_7$};
+    \node[draw,rectangle,yscale=4] (t7) at (3.5, -5.5) {};
+
+    % Liste des arcs
+    \draw[->,>=latex] (o7) -- (t1) node[midway, left]{$id$};
+    \draw[->,>=latex] (t1) -- (o1) node[midway, left]{$f$};
+    \draw[->,>=latex] (o1) -- (t2) node[midway, left]{$id$};
+    \draw[->,>=latex] (t2) -- (o2) node[midway, left]{$f$};
+    \draw[->,>=latex] (o2) -- (t3) node[midway, left]{$id$};
+    \draw[->,>=latex] (t3) -- (o3) node[midway, left]{$f$};
+    \draw[->,>=latex] (o3) -- (t4) node[midway, above]{$id$};
+    \draw[->,>=latex] (t4) -- (o4) node[midway, above]{$f$};
+    \draw[->,>=latex] (o4) -- (t5) node[midway, above right]{$id$};
+    \draw[->,>=latex] (t5) -- (o5) node[midway, right]{$f$};
+    \draw[->,>=latex] (o5) -- (t6) node[midway, right]{$id$};
+    \draw[->,>=latex] (t6) -- (o6) node[midway, right]{$f$};
+    \draw[->,>=latex] (o6) -- (t7) node[midway, right]{$id$};
+    \draw[->,>=latex] (t7) -- (o7) node[midway, right]{$f$};
+
+    \draw[->,>=latex] (e1) -- (t1) node[midway, right]{$e$};
+    \draw[->,>=latex] (t2) -- (e1) node[midway, right]{$e$};
+    \draw[->,>=latex] (e2) -- (t1) node[midway, left]{$e$};
+    \draw[->,>=latex] (t1) -- (e2);
+    \draw[->,>=latex] (e3) -- (t2);
+    \draw[->,>=latex] (t2) -- (e3) node[midway, left]{$e$}; 
+    \draw[->,>=latex] (t3) -- (e2) node[midway, left]{$e$};
+    \draw[->,>=latex] (e2) -- (t2) node[midway, left]{$e$};
+    \draw[->,>=latex] (e3) to [bend right=20] node[midway, above]{$e$}(t3) ;
+    \draw[->,>=latex] (t4) -- (e3) node[midway, left]{$e$};
+    \draw[->,>=latex] (t3) -- (e4) node[midway, below]{$e$};
+    \draw[->,>=latex] (e4) -- (t3);
+    \draw[->,>=latex] (e4) -- (t4) node[midway, right]{$e$};
+    \draw[->,>=latex] (t5) -- (e4) node[midway, above]{$e$};
+    \draw[->,>=latex] (e5) to [out=-180, in=-100] node[midway, below]{$e$}(t4);
+    \draw[->,>=latex] (t4) to [out=-100, in=-180] (e5);
+    \draw[->,>=latex] (e5) -- (t5) node[midway, left]{$e$};
+    \draw[->,>=latex] (t6) -- (e5) node[midway, left]{$e$};
+    \draw[->,>=latex] (t7) -- (e1) node[midway, below]{$e$};
+   
+
+
+  \end{tikzpicture}
+  \caption{Réseau de petri associé à 12.2} \label{fig:M1}
+\end{figure}
