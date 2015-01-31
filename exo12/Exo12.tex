@@ -437,3 +437,46 @@ Ce motif se repete autant de fois que le train veux changer de secteur.
   \hline
 \end{tabular}
 \end{center}
+\subsection{Question 3}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+
+    % Liste des places
+    \draw (-6,0) node[below = 6pt] {$O$};
+    \draw (-6,0) node[left = 6pt] {$\{(x,y)/ x \in \{a, b\} y \in \{1, ..., 7\}\}$};
+    \node[draw,circle,scale=2] (1) at (-6, 0) {};
+    \draw (6,0) node[below = 6pt] {$E$};
+    \draw (6,0) node[left = 6pt] {$\{1, ..., 7\}$};
+    \node[draw,circle,scale=2] (3) at (6, 0) {};
+
+
+    % Liste des transitions
+    \draw (0,0) node[left = 10pt] {$Move$};
+    \node[draw,rectangle,yscale=4] (2) at (0, 0) {};
+
+
+    % Liste des arcs
+    \draw[->,>=latex] (1) to [out=45, in=135] node[midway, below]{$id$}(2);
+    \draw[->,>=latex] (2) to [out=-135, in=-45] node[midway, above]{$f$} (1) ;
+    \draw[->,>=latex] (2) to [out=45, in=135] node[midway, above]{$g$} (3) ;
+    \draw[->,>=latex] (3) to [out=-135, in=-45] node[midway, below]{$h$} (2) ;
+
+
+
+
+  \end{tikzpicture}
+  h(e) = (e, e+1)\\
+f((x,y), e) = $\begin{cases}
+(x, e)\ si\ e = y+1 \\
+(x, y)\ sinon
+\end{cases}$\\
+g((x, y), e) = $\begin{cases}
+y\ si\ e = y+1 \\
+e\ sinon
+\end{cases}$
+
+  \caption{Réseau de petri associé à 12.3} \label{fig:M1}
+\end{figure}
+
+
